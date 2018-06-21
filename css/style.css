@@ -1,0 +1,177 @@
+.divider {
+    width: 100%;
+    height: 1px;
+    background: transparent;
+    margin-bottom: 27px;
+}
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+.fees::before{
+    /*content: '&#8377';*/
+    content: "\20B9";
+    margin-right: 2px;
+}
+.fees::after{
+    /*content: '&#8377';*/
+    content: "/-";
+    margin-left: 2px;
+}
+/* ---- particles.js container ---- */
+
+#particles-js {
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: rgba(0,0,0,0.6);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+
+/* ---- stats.js ---- */
+
+.count-particles {
+    background: #000022;
+    position: absolute;
+	visibility: hidden;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}*/
+
+.js-count-particles {
+    font-size: 1.1em;
+}
+
+#stats,
+.count-particles {
+    -webkit-user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+.count-particles {
+    border-radius: 0 0 3px 3px;
+}
+
+.space {
+    margin-top: 30px;
+}
+
+.curtain {
+    width: 100%;
+    /* Ensures the component is the full screen width */
+    height: 100vh;
+    /* We're using this for demo purposes */
+    overflow: hidden;
+    /* Allows us to slide the panels outside the container without them showing */
+}
+
+.curtain-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.curtain-panel {
+    background-color: rgba(0, 0, 0, 0.52);
+    background-repeat: repeat;
+    background-size: cover;
+    width: 100%;
+    /* Each panel takes up half the container */
+    height: 100%;
+    /* Used for demo purposes */
+    position: relative;
+    /* Needed to define the z-index */
+    z-index: 999;
+    /* Places the panels in front of the prize */
+    transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+}
+
+.curtain-panel img {
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 50%;
+    height: 600px;
+    margin-top: -300px;
+}
+
+input[type=checkbox] {
+    position: absolute;
+    /* Force the checkbox at the start of the container */
+    cursor: pointer;
+    /* Indicate the curtain is clickable */
+    width: 99%;
+    /* The checkbox is as wide as the component */
+    height: 99%;
+    /* The checkbox is as tall as the component */
+    z-index: 1000;
+    /* Make sure the checkbox is on top of everything else */
+    opacity: 0;
+    /* Hide the checkbox */
+}
+
+input[type=checkbox] ~ div.curtain-panel {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+}
+
+input[type=checkbox]:checked {
+    visibility: hidden;
+    cursor: default;
+}
+
+input[type=checkbox]:checked ~ div.curtain-panel {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+}
+
+input[type=checkbox]:checked ~ .container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+@media screen and (max-width: 55em) {
+    .curtain-panel {
+        background-size: contain;
+    }
+    .curtain-panel img {
+        height: 300px;
+        margin-top: -150px;
+    }
+    .curtain-wrapper {
+        /*padding-top: 50%;*/
+    }
+    .logo {
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 16px;
+    }
+}
